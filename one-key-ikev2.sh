@@ -417,10 +417,12 @@ function configure_strongswan(){
  cat > /usr/local/etc/strongswan.conf<<-EOF
  charon {
         load_modular = yes
-        duplicheck.enable = no
         compress = yes
         plugins {
                 include strongswan.d/charon/*.conf
+                duplicheck {
+                    enable = no
+                }
         }
         dns1 = 8.8.8.8
         dns2 = 8.8.4.4
